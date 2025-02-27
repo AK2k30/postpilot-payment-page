@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Subscription</title>
+    <!-- Replit Bootstrap Theme -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/PostPilot-logo.png') }}" alt="PostPilot Logo" class="site-logo">
+    </div>
+
+    <!-- Navigation for logged-in users -->
+    <div class="nav-container">
+        <a href="/dashboard" class="nav-link">
+            <i class="fas fa-chart-line"></i> Dashboard
+        </a>
+        <a href="/payment-history" class="nav-link">
+            <i class="fas fa-history"></i> Payment History
+        </a>
+    </div>
+
+    <div class="container min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="subscription-container text-center">
+            <div class="mb-4">
+                <i class="fas fa-crown premium-icon"></i>
+                <h1 class="display-4 fw-bold mb-3">Premium Subscription</h1>
+                <p class="lead text-muted mb-5">Enhance your social media presence with our premium features</p>
+            </div>
+
+            <div class="pricing-box">
+                <div class="price-header">
+                    <h2 class="display-6 fw-bold">€30/month</h2>
+                    <p class="text-muted">Cancel anytime · No commitment</p>
+                </div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-upload"></i> 1 Content Upload Per Day</li>
+                    <li><i class="fas fa-photo-video"></i> Posts, Reels, and Stories</li>
+                    <li><i class="fas fa-network-wired"></i> Multi-platform Support</li>
+                    <li><i class="fas fa-blog"></i> 1 Blog Post Daily (Coming Soon)</li>
+                    <li><i class="fas fa-layer-group"></i> Unlimited Post Templates</li>
+                </ul>
+            </div>
+
+            <div id="paypal-button-container-P-9U345022LR302184VM67SLCA"></div>
+
+            <!-- Loading Overlay -->
+            <div class="loading-container d-none" id="loading-overlay">
+                <div class="spinner-container">
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="spinner-text">Processing your subscription...</p>
+                </div>
+            </div>
+
+            <!-- Success Alert -->
+            <div class="alert alert-success d-none" id="success-alert" role="alert">
+                <i class="fas fa-check-circle"></i>
+                <div>
+                    <strong>Success!</strong> Welcome to Premium!
+                </div>
+            </div>
+
+            <!-- Error Alert -->
+            <div class="alert alert-danger d-none" id="error-alert" role="alert">
+                <i class="fas fa-exclamation-circle"></i>
+                <div>
+                    <strong>Error:</strong> <span id="error-message">An error occurred</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="{{ url_for('static', filename='images/PostPilot-logo-text.webp') }}" alt="PostPilot Logo" class="footer-logo-img">
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h5>Navigation</h5>
+                        <a href="/">Home</a>
+                        <a href="/dashboard">Dashboard</a>
+                        <a href="/payment-history">Payment History</a>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Support</h5>
+                        <a href="#">Help Center</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    <div class="footer-section">
+                        <h5>Follow Us</h5>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PossPilot AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PayPal Script -->
+    <script src="https://www.paypal.com/sdk/js?client-id=ARVm-etF-ycvcjKKxIRogS4yce0J39qShle0pQl6YPMGFQNB4yl3_hQr1TrNX--9mknIsJ2iQEyEp4t8&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/subscription.js') }}"></script>
+</body>
+</html>
